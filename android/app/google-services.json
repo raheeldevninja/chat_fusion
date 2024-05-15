@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "96225049176",
+    "project_id": "chatfusion-9d150",
+    "storage_bucket": "chatfusion-9d150.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96225049176:android:13b57c58fcf3f8653d682d",
+        "android_client_info": {
+          "package_name": "com.example.chat_fusion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbzZKt96l8Dfe4VhyCsElI_8HLWQBL4OA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
