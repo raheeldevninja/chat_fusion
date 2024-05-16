@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -22,7 +23,14 @@ void main() async {
   }
   else {
     //run initialization for android, ios
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        appId: Constants.appId,
+        apiKey: Constants.apiKey,
+        projectId: Constants.projectId,
+        messagingSenderId: Constants.messagingSenderId,
+      ),
+    );
   }
 
 
