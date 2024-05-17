@@ -1,3 +1,5 @@
+import 'package:chat_fusion/helper/helper_functions.dart';
+import 'package:chat_fusion/pages/auth/login_page.dart';
 import 'package:chat_fusion/pages/home_page.dart';
 import 'package:chat_fusion/shared/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -37,20 +39,45 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  bool _isSignedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getUserLoggedInStatus();
+  }
+
+  _getUserLoggedInStatus() async {
+
+    HelperFunctions.getUserLoggedInStatus().then((value) {
+      setState(() {
+        _isSignedIn = value;
+      });
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Chat Fusion',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: Constants().primaryColor,
+        scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: _isSignedIn ? const HomePage() : const LoginPage(),
     );
   }
 }
